@@ -31,6 +31,6 @@ plt.title("Stock Return Correlation Heatmap", fontsize=14, pad=12)
 plt.tight_layout()
 
 # Invece di plt.show(), salva il grafico come immagine
-plt.savefig("heatmap.png", dpi=300)
+plt.savefig("src/heatmap.png", dpi=300)
 print("Grafico salvato con successo!")
 plt.show
