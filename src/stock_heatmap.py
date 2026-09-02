@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #1. Prezzi di chiusura
-tickers = ["AAPL", "MSFT", "TSLA", "GOOGL", "AMZN", "NVDA", "AMD", "META", "JPM", "SPY", "QQQ", "AVGO"]
+tickers = ["AAPL", "MSFT", "TSLA", "GOOGL", "AMZN", "NVDA", "AMD", "META", "SPY", "QQQ", "AVGO"]
 data = yf.download(tickers, start = "2020-01-01", end = "2026-01-01", auto_adjust=True)["Close"]
 
 # 2. Calcolo dei rendimenti e della matrice di correlazione
