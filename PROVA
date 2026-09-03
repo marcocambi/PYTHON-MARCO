@@ -1,0 +1,41 @@
+# ==============================================================================
+# PARTE 1: SCRITTURA SU FILE ('w' mode)
+# ==============================================================================
+
+# "with open" apre il file e ne garantisce la chiusura automatica al termine del blocco
+with open("scores.txt", "w") as file:
+    for i in range(3):
+        nome = input(f"Inserisci il nome dell'utente {i+1}: ")
+        punteggio = input(f"Inserisci il punteggio di {nome}: ")
+        
+        # Inserimento nel formato CSV: "Nome,Punteggio\n"
+        # '\n' e fondamentale per andare a capo nel file di testo
+        file.write(f"{nome},{punteggio}\n")
+
+print("\n[OK] Dati scritti con successo in 'scores.txt'\n")
+
+# ==============================================================================
+# PARTE 2: LETTURA E PARSING DA FILE ('r' mode)
+# ==============================================================================
+
+punteggio_massimo = -1
+vincitore = ""
+
+with open("scores.txt", "r") as file:
+    for line in file:
+        # 1. .strip() rimuove gli spazi vuoti e il carattere di a capo '\n'
+        riga_pulita = line.strip()
+        
+        # 2. .split(",") separa la stringa dove trova la virgola -> restituisce una lista ["Nome", "Punteggio"]
+        parti = riga_pulita.split(",")
+        nome = parti[0]
+        
+        # 3. Conversione esplicita da stringa a intero per effettuare il confronto matematico
+        punteggio = int(parti[1])
+        
+        # 4. Algoritmo di massimo
+        if punteggio > punteggio_massimo:
+            punteggio_massimo = punteggio
+            vincitore = nome
+
+print(f"Risultato: {vincitore} ha il punteggio piu alto ({punteggio_massimo} punti).")

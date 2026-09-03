@@ -1,0 +1,13 @@
+# SCRIVI UNO SCRIPT CHE SIMULA UN MINI REGISTRO DI TRADE. PER CIASCUNO, CHIEDI 2 VALORI: TIMESTAMP, PREZZO. POI LO ANALIZZA RIUSANDO ESATTAMENTE LO SCHEMA IN PROVA
+n_trades = int(input("Quanti trade vuoi darmi?"))
+with open("trades.txt", "w") as file:
+    for i in range(n_trades):
+        
+            trade = input(f"Inserisci il nome del titolo {i+1}")
+            timestamp = input(f"Qual'è il timestamp di {trade}?")
+            prezzo = input(f"A quale prezzo hai comprarto {trade}")
+        file.write(f"{trade}, {timestamp}, {prezzo}"
+    print("\n Dati salvati con successo")
+with open("trades.txt", "r") as file:
+    for line in file:
+    
